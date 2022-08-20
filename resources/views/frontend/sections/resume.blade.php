@@ -1,6 +1,6 @@
 <div data-anchor="page3" class="pp-scrollable text-white section section-3">
     <div class="scroll-wrap">
-        <div class="section-bg" style="background-image:url(images/bg/resume.jpg);"></div>
+        <div class="section-bg" style="background-image:url(asset/frontend/images/bg/resume.jpg);"></div>
         <div class="scrollable-content">
             <div class="vertical-centred">
                 <div class="boxed boxed-inner">

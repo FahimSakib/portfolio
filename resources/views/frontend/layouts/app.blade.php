@@ -4,22 +4,27 @@
 <!-- robert/  03:29:43 GMT -->
 
 <head>
+    <base href="{{ asset('/') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <title>Robert - One page HTML Template</title>
+    <link rel="shortcut icon" href="asset/frontend/favicon.png">
+    <link rel="apple-touch-icon" href="asset/frontend/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="asset/frontend/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="asset/frontend/apple-touch-icon-114x114.png">
+    <title>@hasSection ('title')
+        @yield('title')
+    @else
+        Portfolio
+    @endif</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400i&amp;display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="asset/frontend/css/style.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -48,12 +53,6 @@
                 <li data-menuanchor="page4">
                     <a href="#page4">Clients</a>
                 </li>
-                <li data-menuanchor="page5">
-                    <a href="#page5">Projects</a>
-                </li>
-                <li data-menuanchor="page6">
-                    <a href="#page6">Testimonials</a>
-                </li>
                 <li data-menuanchor="page7">
                     <a href="#page7">Contact</a>
                 </li>
@@ -66,14 +65,13 @@
                     <a href="#" class="icon ion-social-linkedin"></a>
                     <a href="#" class="icon ion-social-dribbble-outline"></a>
                 </div>
-                <div class="copy"><a href="templateshub.net">Templates Hub</a></div>
             </div>
         </div>
 
         <header class="navbar boxed">
             <div class="navbar-bg"></div>
             <a class="brand" href="#">
-                <img class="brand-img" alt="" src="images/brand.png">
+                <img class="brand-img" alt="" src="asset/frontend/images/brand.png">
                 <div class="brand-info">
                     <div class="brand-name">Robert</div>
                     <div class="brand-text">personal</div>
@@ -108,21 +106,21 @@
             <a href="#" class="icon ion-social-dribbble-outline"></a>
         </div>
         <div class="pagepiling">
-          @yield('content')
+            @yield('content')
         </div>
     </div>
 
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/animsition.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.pagepiling.min.js"></script>
+    {{-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
+    <script src="asset/frontend/js/jquery.min.js"></script>
+    <script src="asset/frontend/js/wow.min.js"></script>
+    <script src="asset/frontend/js/smoothscroll.js"></script>
+    <script src="asset/frontend/js/animsition.js"></script>
+    <script src="asset/frontend/js/jquery.validate.min.js"></script>
+    <script src="asset/frontend/js/jquery.magnific-popup.min.js"></script>
+    <script src="asset/frontend/js/owl.carousel.min.js"></script>
+    <script src="asset/frontend/js/jquery.pagepiling.min.js"></script>
 
-    <script src="js/scripts.js"></script>
+    <script src="asset/frontend/js/scripts.js"></script>
 </body>
 
 <!-- robert/  03:30:37 GMT -->

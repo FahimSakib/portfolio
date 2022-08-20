@@ -1,11 +1,11 @@
 <div data-anchor="page5" class="pp-scrollable text-white section section-5">
     <div class="scroll-wrap">
         <div class="bg-changer">
-            <div class="section-bg" style="background-image:url(images/bg/project1.jpg);"></div>
-            <div class="section-bg" style="background-image:url(images/bg/project2.jpg);"></div>
-            <div class="section-bg" style="background-image:url(images/bg/project3.jpg);"></div>
-            <div class="section-bg" style="background-image:url(images/bg/project4.jpg);"></div>
-            <div class="section-bg" style="background-image:url(images/bg/project5.jpg);"></div>
+            <div class="section-bg" style="background-image:url(asset/frontend/images/bg/project1.jpg);"></div>
+            <div class="section-bg" style="background-image:url(asset/frontend/images/bg/project2.jpg);"></div>
+            <div class="section-bg" style="background-image:url(asset/frontend/images/bg/project3.jpg);"></div>
+            <div class="section-bg" style="background-image:url(asset/frontend/images/bg/project4.jpg);"></div>
+            <div class="section-bg" style="background-image:url(asset/frontend/images/bg/project5.jpg);"></div>
         </div>
         <div class="scrollable-content">
             <div class="vertical-centred">
