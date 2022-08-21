@@ -105,6 +105,12 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Work::find($id)->delete();
+
+        if($result){
+            return redirect()->route('admin.work.index')->with('success', 'Data has been deleted successfully');
+        }else{
+            return redirect()->route('admin.work.index')->with('error', 'Data can\'t be deleted');
+        }
     }
 }
