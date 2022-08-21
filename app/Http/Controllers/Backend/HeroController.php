@@ -29,7 +29,12 @@ class HeroController extends Controller
      */
     public function create()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Hero Section | Create',
+            'subTitle' => 'Hero Section Create'
+        ];
+
+        return view('backend.pages.hero-section.create', compact('pageInfo'));
     }
 
     /**
@@ -40,7 +45,16 @@ class HeroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'brandName' => 'required|string',
+            'brandText' => 'required|string',
+            'mobile'    => 'required',
+            'email'     => 'required|email',
+            'welcome'   => 'required|string',
+            'name'      => 'required|string',
+            'cover'     => 'required|mimes:jpg,jpeg,png'
+        ]);
+        // dd($request->all());
     }
 
     /**
