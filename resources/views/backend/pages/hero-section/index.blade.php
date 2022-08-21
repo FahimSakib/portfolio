@@ -14,7 +14,17 @@
                     
                 @empty
                     <div class="row justify-content-center">
-                        
+                        <div class="col-md-6">
+                            <p class="text-center">
+                            <img src="asset/backend/assets/img/incomprehension.png" alt="no" style="width: 50%">
+                        </p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="text-center">There is no information available! please add your information first.</h5>
+                            <p class="text-center mt-3">
+                            <a href="{{ route('admin.hero.create') }}" class="btn btn-success btn-lg">Add Information</a>
+                            </p>
+                        </div>
                     </div>
                 @endforelse
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\HeroSection;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
@@ -19,7 +20,9 @@ class HeroController extends Controller
             'subTitle' => 'Hero Section'
         ];
 
-        return view('backend.pages.hero-section.index', compact('pageInfo'));
+        $hero = HeroSection::get();
+
+        return view('backend.pages.hero-section.index', compact('pageInfo','hero'));
     }
 
     /**
