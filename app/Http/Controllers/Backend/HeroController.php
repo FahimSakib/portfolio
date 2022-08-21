@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\HeroSection;
+use App\Traits\UploadAble;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
 {
+    use UploadAble;
+
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +60,20 @@ class HeroController extends Controller
             'name'      => 'required|string',
             'cover'     => 'required|mimes:jpg,jpeg,png'
         ]);
-        // dd($request->all());
+
+        if($request->hasFile('cover')){
+            $collect = collect($request->all())->except('cover');
+            $cover   = $this->upload_file($request->cover,'hero_section');
+            $collect = collect($collect)->merge(compact('cover'));
+
+            $result  = HeroSection::create($collect->toArray());
+        }
+
+        if($result){
+            return redirect()->route('admin.hero.index')->with('success', 'Data has been saved successfully');
+        }else{
+            return redirect()->route('admin.hero.index')->with('error', 'Data can\'t be saved');
+        }
     }
 
     /**

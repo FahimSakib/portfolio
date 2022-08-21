@@ -24,8 +24,10 @@
             @include('backend.include.footer')
         </div>
     </div>
+    @include('sweetalert::alert')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="asset/backend/js/scripts.js"></script>
     @stack('scripts')
 </body>
