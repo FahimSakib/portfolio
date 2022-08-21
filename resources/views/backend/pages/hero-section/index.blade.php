@@ -22,10 +22,10 @@ toast($message,'error');
                 @forelse ($hero as $item)
                 <div class="col-md-12 row mb-3">
                     <div class="col-md-12 row mb-3">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <h3>Info</h3>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6 text-end">
                             <form action="{{ route('admin.hero.destroy',$item->id) }}" method="POST" id="delete_form">
                                 @csrf
                                 @method('DELETE')
