@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Work;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -14,7 +15,14 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Admin | Work',
+            'subTitle' => 'Work'
+        ];
+
+        $work = Work::get();
+
+        return view('backend.pages.work.index', compact('pageInfo','work'));
     }
 
     /**
@@ -24,7 +32,12 @@ class WorkController extends Controller
      */
     public function create()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Work | Create',
+            'subTitle' => 'Work Create'
+        ];
+
+        return view('backend.pages.work.create', compact('pageInfo'));
     }
 
     /**
@@ -35,7 +48,19 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'experience' => 'required|integer',
+            'heading' => 'required|string',
+            'details' => 'required|string'
+        ]);
+
+        $result = Work::create($request->all());
+
+        if($result){
+            return redirect()->route('admin.work.index')->with('success', 'Data has been saved successfully');
+        }else{
+            return redirect()->route('admin.work.index')->with('error', 'Data can\'t be saved');
+        }
     }
 
     /**
