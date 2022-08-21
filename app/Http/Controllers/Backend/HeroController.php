@@ -77,17 +77,6 @@ class HeroController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -95,7 +84,8 @@ class HeroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hero = HeroSection::find($id);
+        return view('backend.pages.hero-section.edit',compact('hero'));
     }
 
     /**
@@ -107,7 +97,37 @@ class HeroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'brandName' => 'required|string',
+            'brandText' => 'required|string',
+            'mobile'    => 'required',
+            'email'     => 'required|email',
+            'welcome'   => 'required|string',
+            'name'      => 'required|string',
+            'cover'     => 'nullable|mimes:jpg,jpeg,png'
+        ]);
+        // dd($request->all());
+
+        if($request->hasFile('cover')){
+            if(!empty($request->oldCover)){
+                $this->delete_file($request->oldCover,'hero_section');
+            }
+            $collect = collect($request->all())->except(['cover','oldCover']);
+            $cover   = $this->upload_file($request->cover,'hero_section');
+            $collect = collect($collect)->merge(compact('cover'));
+            $result  = HeroSection::find($id)->update($collect->toArray());
+        }else{
+            $collect = collect($request->all())->except(['cover','oldCover']);
+            $cover   = $request->oldCover;
+            $collect = collect($collect)->merge(compact('cover'));
+            $result  = HeroSection::find($id)->update($collect->toArray());
+        }
+
+        if($result){
+            return redirect()->route('admin.hero.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.hero.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**
@@ -118,7 +138,12 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        $result = HeroSection::find($id)->delete();
+        $hero = HeroSection::find($id);
+        
+        if($hero){
+            $this->delete_file($hero->cover,'hero_section');
+            $result = $hero->delete();
+        }
 
         if($result){
             return redirect()->route('admin.hero.index')->with('success', 'Data has been deleted successfully');

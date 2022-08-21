@@ -34,7 +34,7 @@ Route::get('/',[IndexController::class, 'index'])->name('frontend.index');
 // Backend
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('hero', HeroController::class);
+    Route::resource('hero', HeroController::class)->except('show');
 });
 // Backend
 
