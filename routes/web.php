@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,12 @@ Route::middleware([
 // frontend
 Route::get('/',[IndexController::class, 'index'])->name('frontend.index');
 // frontend
+
+// Backend
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+});
+// Backend
+
+
+// , 'middleware' => 'auth'
