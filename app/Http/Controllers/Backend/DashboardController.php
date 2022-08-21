@@ -10,8 +10,8 @@ class DashboardController extends Controller
     public function index()
     {
         $pageInfo = [
-            'title'    => 'Dashboard',
-            'subTitle' => 'Dashboard',
+            'title'    => 'Admin | Dashboard',
+            'subTitle' => 'Dashboard'
         ];
 
         return view('backend.pages.dashboard.dashboard',compact('pageInfo'));
