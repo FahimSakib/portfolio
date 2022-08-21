@@ -97,7 +97,7 @@
                     </div>
                     <div class="mt-4 mb-0">
                         <button class="btn btn-danger" type="reset">Reset</button>
-                        <button class="btn btn-success" type="submit">Save</button>
+                        <button class="btn btn-success" type="submit">Update</button>
                     </div>
                 </form>
                 <div class="row justify-content-center mt-3">

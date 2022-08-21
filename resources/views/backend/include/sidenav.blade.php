@@ -12,6 +12,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                     Hero Section
                 </a>
+                <a class="nav-link" href="{{ route('admin.work.index') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-laptop-file"></i></div>
+                    Work
+                </a>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                     aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

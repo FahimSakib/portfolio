@@ -50,8 +50,8 @@ class WorkController extends Controller
     {
         $request->validate([
             'experience' => 'required|integer',
-            'heading' => 'required|string',
-            'details' => 'required|string'
+            'heading'    => 'required|string',
+            'details'    => 'required|string'
         ]);
 
         $result = Work::create($request->all());
@@ -64,17 +64,6 @@ class WorkController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -82,7 +71,13 @@ class WorkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageInfo = [
+            'title'    => 'Work | Edit',
+            'subTitle' => 'Work Edit'
+        ];
+
+        $work = Work::find($id);
+        return view('backend.pages.work.edit',compact('pageInfo','work'));
     }
 
     /**
@@ -94,7 +89,19 @@ class WorkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'experience' => 'required|integer',
+            'heading'    => 'required|string',
+            'details'    => 'required|string'
+        ]);
+        
+        $result = Work::find($id)->update($request->all());
+
+        if($result){
+            return redirect()->route('admin.work.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.work.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**

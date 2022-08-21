@@ -84,8 +84,13 @@ class HeroController extends Controller
      */
     public function edit($id)
     {
+        $pageInfo = [
+            'title'    => 'Hero Section | Edit',
+            'subTitle' => 'Hero Section Edit'
+        ];
+
         $hero = HeroSection::find($id);
-        return view('backend.pages.hero-section.edit',compact('hero'));
+        return view('backend.pages.hero-section.edit',compact('pageInfo','hero'));
     }
 
     /**
@@ -106,7 +111,6 @@ class HeroController extends Controller
             'name'      => 'required|string',
             'cover'     => 'nullable|mimes:jpg,jpeg,png'
         ]);
-        // dd($request->all());
 
         if($request->hasFile('cover')){
             if(!empty($request->oldCover)){
