@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Static Navigation - SB Admin</title>
+    <title>{{ isset($pageInfo['title']) ? $pageInfo['title'] : 'Fahim Sakib'}}</title>
     <link href="asset/backend/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     @stack('styles')
