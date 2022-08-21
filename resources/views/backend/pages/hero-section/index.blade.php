@@ -68,13 +68,13 @@ toast($message,'error');
                             <tr>
                                 <th>Created at</th>
                                 <td>
-                                    {!! date('d - M - Y - h : i : s A', strtotime($item->created_at)) !!}
+                                    {!! date('d-M-Y | h:i:s A', strtotime($item->created_at)) !!}
                                 </td>
                             </tr>
                             <tr>
                                 <th>Updated at</th>
                                 <td>
-                                    {!! date('d - M - Y - h : i : s A', strtotime($item->updated_at)) !!}
+                                    {!! date('d-M-Y | h:i:s A', strtotime($item->updated_at)) !!}
                                 </td>
                             </tr>
                         </tbody>
