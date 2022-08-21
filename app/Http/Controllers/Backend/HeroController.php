@@ -118,6 +118,12 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = HeroSection::find($id)->delete();
+
+        if($result){
+            return redirect()->route('admin.hero.index')->with('success', 'Data has been deleted successfully');
+        }else{
+            return redirect()->route('admin.hero.index')->with('error', 'Data can\'t be deleted');
+        }
     }
 }

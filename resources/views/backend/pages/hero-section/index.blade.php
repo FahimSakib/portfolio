@@ -26,12 +26,15 @@ toast($message,'error');
                             <h3>Info</h3>
                         </div>
                         <div class="col-md-6 text-end">
-                            <form action="{{ route('admin.hero.destroy',$item->id) }}" method="POST" id="delete_form">
+                            <form action="{{ route('admin.hero.destroy',$item->id) }}" method="POST"
+                                id="delete_form_{{ $item->id }}">
                                 @csrf
                                 @method('DELETE')
                             </form>
-                            <a class="btn btn-danger delete_confirm"><i class="fas fa-trash"></i> Delete Information</a>
-                            <a class="btn btn-primary" href="{{ route('admin.hero.edit',$item->id) }}"><i class="fas fa-pen-to-square"></i> Edit
+                            <a class="btn btn-danger delete_confirm" data-id="{{ $item->id }}"><i
+                                    class="fas fa-trash"></i> Delete Information</a>
+                            <a class="btn btn-primary" href="{{ route('admin.hero.edit',$item->id) }}"><i
+                                    class="fas fa-pen-to-square"></i> Edit
                                 Information</a>
                         </div>
                     </div>
@@ -112,7 +115,8 @@ toast($message,'error');
 <script src="asset/backend/js/sweetalert.min.js"></script>
 <script>
     $(document).on('click', '.delete_confirm', function () {
-        var form = $('#delete_form').closest("form");
+        var formId = $(this).data("id");
+        var form = $('#delete_form_' + formId).closest("form");
         event.preventDefault();
         swal({
                 title: "Are you sure you want to delete this record?",
