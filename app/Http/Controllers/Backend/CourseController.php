@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,7 +15,14 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Admin | Course',
+            'subTitle' => 'Course'
+        ];
+
+        $courses = Course::toBase()->get();
+
+        return view('backend.pages.courses.index', compact('pageInfo','courses'));
     }
 
     /**
@@ -24,7 +32,12 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Course | Create',
+            'subTitle' => 'Course Create'
+        ];
+
+        return view('backend.pages.courses.create', compact('pageInfo'));
     }
 
     /**
@@ -35,7 +48,20 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'     => 'required|string',
+            'institute' => 'required|string',
+            'duration'  => 'required|integer',
+            'org'       => 'nullable|string'
+        ]);
+
+        $result = Course::create($request->all());
+
+        if($result){
+            return redirect()->route('admin.course.index')->with('success', 'Data has been saved successfully');
+        }else{
+            return redirect()->route('admin.course.index')->with('error', 'Data can\'t be saved');
+        }
     }
 
     /**

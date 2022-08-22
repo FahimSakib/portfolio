@@ -19,19 +19,19 @@ toast($message,'error');
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                @if (count($educations) != 0)
+                @if (count($courses) != 0)
                 <div class="text-end mb-3">
-                    <a class="btn btn-primary" href="{{ route('admin.education.create') }}">Add New</a>
+                    <a class="btn btn-primary" href="{{ route('admin.course.create') }}">Add New</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Exam</th>
-                                <th scope="col">School</th>
-                                <th scope="col" class="text-center">Year of Passing</th>
-                                <th scope="col" class="text-center">GPA/CGPA</th>
+                                <th scope="col">Course Title</th>
+                                <th scope="col">Institute</th>
+                                <th scope="col" class="text-center">Duration</th>
+                                <th scope="col" class="text-center">Organization</th>
                                 <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -39,23 +39,23 @@ toast($message,'error');
                             @php
                             $i=1;
                             @endphp
-                            @foreach ($educations as $item)
+                            @foreach ($courses as $item)
                             <tr>
                                 <th scope="row">{{ $i++ }}</th>
-                                <td>{{ $item->exam }}</td>
-                                <td>{{ $item->school }}</td>
-                                <td class="text-center">{{ $item->passing_year }}</td>
-                                <td class="text-center">{{ $item->gpa != null ? $item->gpa : 'N/A' }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->institute }}</td>
+                                <td class="text-center">{{ $item->duration }}</td>
+                                <td class="text-center">{{ $item->org != null ? $item->org : 'N/A' }}</td>
                                 <td>
                                     <div class="text-center">
-                                        <form action="{{ route('admin.education.destroy',$item->id) }}" method="POST"
+                                        <form action="{{ route('admin.course.destroy',$item->id) }}" method="POST"
                                             id="delete_form_{{ $item->id }}">
                                             @csrf
                                             @method('DELETE')
                                         </form>
                                         <a class="btn btn-danger delete_confirm" data-id="{{ $item->id }}"><i
                                                 class="fas fa-trash"></i></a>
-                                        <a class="btn btn-primary" href="{{ route('admin.education.edit',$item->id) }}"><i
+                                        <a class="btn btn-primary" href="{{ route('admin.course.edit',$item->id) }}"><i
                                                 class="fas fa-pen-to-square"></i></a>
                                     </div>
                                 </td>
@@ -75,7 +75,7 @@ toast($message,'error');
                         <h5 class="text-center">There is no information available! please add your information first.
                         </h5>
                         <p class="text-center mt-3">
-                            <a href="{{ route('admin.education.create') }}" class="btn btn-success btn-lg">Add
+                            <a href="{{ route('admin.course.create') }}" class="btn btn-success btn-lg">Add
                                 New</a>
                         </p>
                     </div>
