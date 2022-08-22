@@ -15,7 +15,14 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Admin | Skill',
+            'subTitle' => 'Skill'
+        ];
+
+        $skills = Skill::toBase()->get();
+
+        return view('backend.pages.skill.index', compact('pageInfo','skills'));
     }
 
     /**
@@ -97,6 +104,12 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Skill::find($id)->delete();
+
+        if($result){
+            return redirect()->route('admin.skill.index')->with('success', 'Data has been deleted successfully');
+        }else{
+            return redirect()->route('admin.skill.index')->with('error', 'Data can\'t be deleted');
+        }
     }
 }

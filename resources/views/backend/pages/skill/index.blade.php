@@ -19,60 +19,57 @@ toast($message,'error');
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                @forelse ($work as $item)
-                <div class="col-md-12 row mb-3">
-                    <div class="col-md-12 row mb-3">
-                        <div class="col-md-6">
-                            <h3>Info</h3>
-                        </div>
-                        <div class="col-md-6 text-end">
-                            <form action="{{ route('admin.work.destroy',$item->id) }}" method="POST"
-                                id="delete_form_{{ $item->id }}">
-                                @csrf
-                                @method('DELETE')
-                            </form>
-                            <a class="btn btn-danger delete_confirm" data-id="{{ $item->id }}"><i
-                                    class="fas fa-trash"></i> Delete Information</a>
-                            <a class="btn btn-primary" href="{{ route('admin.work.edit',$item->id) }}"><i
-                                    class="fas fa-pen-to-square"></i> Edit
-                                Information</a>
-                        </div>
-                    </div>
+                @if (count($skills) != 0)
+                <div class="text-end mb-3">
+                    <a class="btn btn-primary" href="{{ route('admin.skill.create') }}">Add New</a>
+                </div>
+                <div class="table-responsive">
                     <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Percentage</th>
+                                <th scope="col">Progress bar</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
                         <tbody>
+                            @php
+                            $i=1;
+                            @endphp
+                            @foreach ($skills as $item)
                             <tr>
-                                <th class="col-md-2">Fields</th>
-                                <th>Details</th>
-                            </tr>
-                            <tr>
-                                <th>Experience</th>
-                                <td>{{ $item->experience }}</td>
-                            </tr>
-                            <tr>
-                                <th>Heading</th>
-                                <td>{{ $item->heading}}</td>
-                            </tr>
-                            <tr>
-                                <th>Details</th>
-                                <td>{{ $item->details}}</td>
-                            </tr>
-                            <tr>
-                                <th>Created at</th>
+                                <th scope="row">{{ $i++ }}</th>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->percentage }}</td>
                                 <td>
-                                    {!! date('d-M-Y | h:i:s A', strtotime($item->created_at)) !!}
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar"
+                                            style="width: {{ $item->percentage }}%"
+                                            aria-valuenow="{{ $item->percentage }}" aria-valuemin="0"
+                                            aria-valuemax="100">{{ $item->percentage }}</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <form action="{{ route('admin.skill.destroy',$item->id) }}" method="POST"
+                                            id="delete_form_{{ $item->id }}">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                        <a class="btn btn-danger delete_confirm" data-id="{{ $item->id }}"><i
+                                                class="fas fa-trash"></i></a>
+                                        <a class="btn btn-primary" href="{{ route('admin.skill.edit',$item->id) }}"><i
+                                                class="fas fa-pen-to-square"></i></a>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <th>Updated at</th>
-                                <td>
-                                    {!! date('d-M-Y | h:i:s A', strtotime($item->updated_at)) !!}
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
-
-                @empty
+                @else
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <p class="text-center">
@@ -83,12 +80,12 @@ toast($message,'error');
                         <h5 class="text-center">There is no information available! please add your information first.
                         </h5>
                         <p class="text-center mt-3">
-                            <a href="{{ route('admin.work.create') }}" class="btn btn-success btn-lg">Add
-                                Information</a>
+                            <a href="{{ route('admin.skill.create') }}" class="btn btn-success btn-lg">Add
+                                New</a>
                         </p>
                     </div>
                 </div>
-                @endforelse
+                @endif
             </div>
         </div>
     </div>
