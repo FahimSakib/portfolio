@@ -64,17 +64,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -105,6 +94,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Project::find($id)->delete();
+
+        if($result){
+            return redirect()->route('admin.project.index')->with('success', 'Data has been deleted successfully');
+        }else{
+            return redirect()->route('admin.project.index')->with('error', 'Data can\'t be deleted');
+        }
     }
 }
