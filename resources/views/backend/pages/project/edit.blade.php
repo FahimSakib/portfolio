@@ -6,53 +6,42 @@
         <h1 class="mt-4">{{ isset($pageInfo['subTitle']) ? $pageInfo['subTitle'] : 'Admin'}}</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.course.index') }}">Course</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.project.index') }}">Project</a></li>
             <li class="breadcrumb-item active">{{ isset($pageInfo['subTitle']) ? $pageInfo['subTitle'] : 'Admin'}}</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.course.update',$course->id) }}">
+                <form method="POST" action="{{ route('admin.project.update',$project->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="row mb-3">
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                                    type="text" value="{{ $course->title }}" placeholder="Web Design" />
-                                <label for="title">Course Title*</label>
+                                <input class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                                    type="text" value="{{ $project->name }}" placeholder="Laravel Base" />
+                                <label for="name">Project Name*</label>
                             </div>
-                            @error('title')
+                            @error('name')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('institute') is-invalid @enderror" id="institute"
-                                    name="institute" type="text" value="{{ $course->institute }}" placeholder="eRevo" />
-                                <label for="institute">Institute*</label>
+                                <input class="form-control @error('type') is-invalid @enderror" id="type" name="type"
+                                    type="text" value="{{ $project->type }}" placeholder="Project Base" />
+                                <label for="type">Project Type*</label>
                             </div>
-                            @error('institute')
+                            @error('type')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('duration') is-invalid @enderror"
-                                    id="duration" name="duration" type="number" min="3" max="12"
-                                    value="{{ $course->duration }}" placeholder="3" />
-                                <label for="duration">Duration*</label>
+                                <input class="form-control @error('url') is-invalid @enderror" id="url" name="url"
+                                    type="text" value="{{ $project->url }}" placeholder="www.project.com" />
+                                <label for="url">Project URL*</label>
                             </div>
-                            @error('duration')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('org') is-invalid @enderror" id="org" name="org"
-                                    type="text" value="{{ $course->org }}" placeholder="eRevo" />
-                                <label for="org">Organization (optional)</label>
-                            </div>
-                            @error('org')
+                            @error('url')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>

@@ -71,7 +71,14 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageInfo = [
+            'title'    => 'Project | Edit',
+            'subTitle' => 'Project Edit'
+        ];
+
+        $project = Project::find($id);
+
+        return view('backend.pages.project.edit',compact('pageInfo','project'));
     }
 
     /**
@@ -83,7 +90,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'type' => 'required|string',
+            'url'  => 'required|string',
+        ]);
+
+        $result = Project::find($id)->update($request->all());
+
+        if($result){
+            return redirect()->route('admin.project.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.project.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**

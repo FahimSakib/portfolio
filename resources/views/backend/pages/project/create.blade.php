@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('type') is-invalid @enderror" id="type"
-                                    name="type" type="text" value="{{ old('type') }}" placeholder="Project Base" />
+                                <input class="form-control @error('type') is-invalid @enderror" id="type" name="type"
+                                    type="text" value="{{ old('type') }}" placeholder="Project Base" />
                                 <label for="type">Project Type*</label>
                             </div>
                             @error('type')
@@ -40,7 +40,7 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control @error('url') is-invalid @enderror" id="url" name="url"
-                                    type="text" value="{{ old('url') }}" placeholder="eRevo" />
+                                    type="text" value="{{ old('url') }}" placeholder="www.project.com" />
                                 <label for="url">Project URL*</label>
                             </div>
                             @error('url')
