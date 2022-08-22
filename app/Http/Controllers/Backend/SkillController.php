@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -24,7 +25,12 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Skill | Create',
+            'subTitle' => 'Skill Create'
+        ];
+
+        return view('backend.pages.skill.create', compact('pageInfo'));
     }
 
     /**
@@ -35,7 +41,18 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'      => 'required|string',
+            'percentage' => 'required|integer',
+        ]);
+
+        $result = Skill::create($request->all());
+
+        if($result){
+            return redirect()->route('admin.skill.index')->with('success', 'Data has been saved successfully');
+        }else{
+            return redirect()->route('admin.skill.index')->with('error', 'Data can\'t be saved');
+        }
     }
 
     /**
