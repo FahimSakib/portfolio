@@ -93,7 +93,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="mt-4 mb-0">
+                    <div class="mt-4 mb-0 text-end">
                         <button class="btn btn-danger" type="reset">Reset</button>
                         <button class="btn btn-success" type="submit">Save</button>
                     </div>
