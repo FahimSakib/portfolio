@@ -65,17 +65,6 @@ class CourseController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -83,7 +72,14 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageInfo = [
+            'title'    => 'Course | Edit',
+            'subTitle' => 'Course Edit'
+        ];
+
+        $course = Course::find($id);
+
+        return view('backend.pages.courses.edit',compact('pageInfo','course'));
     }
 
     /**
@@ -95,7 +91,20 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'     => 'required|string',
+            'institute' => 'required|string',
+            'duration'  => 'required|integer',
+            'org'       => 'nullable|string'
+        ]);
+
+        $result = Course::find($id)->update($request->all());
+
+        if($result){
+            return redirect()->route('admin.course.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.course.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**

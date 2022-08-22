@@ -39,9 +39,9 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('duration') is-invalid @enderror"
-                                    id="duration" name="duration" type="number" min="3" max="12"
-                                    value="{{ old('duration') }}" placeholder="3" />
+                                <input class="form-control @error('duration') is-invalid @enderror" id="duration"
+                                    name="duration" type="number" min="3" max="12" value="{{ old('duration') }}"
+                                    placeholder="3" />
                                 <label for="duration">Duration*</label>
                             </div>
                             @error('duration')
