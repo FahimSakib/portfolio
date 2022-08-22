@@ -106,6 +106,12 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Course::find($id)->delete();
+
+        if($result){
+            return redirect()->route('admin.course.index')->with('success', 'Data has been deleted successfully');
+        }else{
+            return redirect()->route('admin.course.index')->with('error', 'Data can\'t be deleted');
+        }
     }
 }
