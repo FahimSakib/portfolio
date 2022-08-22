@@ -11,42 +11,34 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.work.update',$work->id) }}">                    
+                <form method="POST" action="{{ route('admin.skill.update',$skill->id) }}">                    
                     @csrf
                     @method('PUT')
                     <div class="row mb-3">
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('experience') is-invalid @enderror" id="experience"
-                                    name="experience" type="number" min="1" value="{{ $work->experience }}"
+                                <input class="form-control @error('title') is-invalid @enderror" id="title"
+                                    name="title" type="text" value="{{ $skill->title }}"
                                     placeholder="1" />
-                                <label for="experience">Experience</label>
+                                <label for="title">Title</label>
                             </div>
-                            @error('experience')
+                            @error('title')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control @error('heading') is-invalid @enderror" id="heading"
-                                    name="heading" type="text" value="{{ $work->heading }}"
-                                    placeholder="Website around" />
-                                <label for="heading">Brand Text</label>
+                                <input class="form-control @error('percentage') is-invalid @enderror" id="percentage"
+                                    name="percentage" type="number" min="60" max="100" value="{{ $skill->percentage }}"
+                                    placeholder="1" />
+                                <label for="percentage">Percentage</label>
                             </div>
-                            @error('heading')
+                            @error('percentage')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control @error('details') is-invalid @enderror" id="details"
-                            name="details" type="text" rows="3">{{ $work->details }}</textarea>
-                        <label for="details">Details</label>
-                        @error('details')
-                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mt-4 mb-0">
+                    <div class="mt-4 mb-0 text-end">
                         <button class="btn btn-danger" type="reset">Reset</button>
                         <button class="btn btn-success" type="submit">Update</button>
                     </div>

@@ -63,17 +63,6 @@ class SkillController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -81,7 +70,14 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageInfo = [
+            'title'    => 'Skill | Edit',
+            'subTitle' => 'Skill Edit'
+        ];
+
+        $skill = Skill::find($id);
+
+        return view('backend.pages.skill.edit',compact('pageInfo','skill'));
     }
 
     /**
@@ -93,7 +89,18 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'      => 'required|string',
+            'percentage' => 'required|integer',
+        ]);
+
+        $result = Skill::find($id)->update($request->all());
+
+        if($result){
+            return redirect()->route('admin.skill.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.skill.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**
