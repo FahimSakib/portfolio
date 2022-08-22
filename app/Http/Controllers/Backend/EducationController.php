@@ -15,7 +15,14 @@ class EducationController extends Controller
      */
     public function index()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Admin | Education',
+            'subTitle' => 'Education'
+        ];
+
+        $educations = Education::toBase()->get();
+
+        return view('backend.pages.education.index', compact('pageInfo','educations'));
     }
 
     /**

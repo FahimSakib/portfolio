@@ -19,48 +19,43 @@ toast($message,'error');
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                @if (count($skills) != 0)
+                @if (count($educations) != 0)
                 <div class="text-end mb-3">
-                    <a class="btn btn-primary" href="{{ route('admin.skill.create') }}">Add New</a>
+                    <a class="btn btn-primary" href="{{ route('admin.education.create') }}">Add New</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Percentage</th>
-                                <th scope="col">Progress bar</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Exam</th>
+                                <th scope="col">School</th>
+                                <th scope="col" class="text-center">Year of Passing</th>
+                                <th scope="col" class="text-center">GPA/CGPA</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php
                             $i=1;
                             @endphp
-                            @foreach ($skills as $item)
+                            @foreach ($educations as $item)
                             <tr>
                                 <th scope="row">{{ $i++ }}</th>
-                                <td>{{ $item->title }}</td>
-                                <td>{{ $item->percentage }}</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                            style="width: {{ $item->percentage }}%"
-                                            aria-valuenow="{{ $item->percentage }}" aria-valuemin="0"
-                                            aria-valuemax="100">{{ $item->percentage }}</div>
-                                    </div>
-                                </td>
+                                <td>{{ $item->exam }}</td>
+                                <td>{{ $item->school }}</td>
+                                <td class="text-center">{{ $item->passing_year }}</td>
+                                <td class="text-center">{{ $item->gpa != null ? $item->gpa : 'N/A' }}</td>
                                 <td>
                                     <div class="text-center">
-                                        <form action="{{ route('admin.skill.destroy',$item->id) }}" method="POST"
+                                        <form action="{{ route('admin.education.destroy',$item->id) }}" method="POST"
                                             id="delete_form_{{ $item->id }}">
                                             @csrf
                                             @method('DELETE')
                                         </form>
                                         <a class="btn btn-danger delete_confirm" data-id="{{ $item->id }}"><i
                                                 class="fas fa-trash"></i></a>
-                                        <a class="btn btn-primary" href="{{ route('admin.skill.edit',$item->id) }}"><i
+                                        <a class="btn btn-primary" href="{{ route('admin.education.edit',$item->id) }}"><i
                                                 class="fas fa-pen-to-square"></i></a>
                                     </div>
                                 </td>
