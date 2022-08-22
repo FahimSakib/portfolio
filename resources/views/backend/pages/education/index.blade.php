@@ -75,7 +75,7 @@ toast($message,'error');
                         <h5 class="text-center">There is no information available! please add your information first.
                         </h5>
                         <p class="text-center mt-3">
-                            <a href="{{ route('admin.skill.create') }}" class="btn btn-success btn-lg">Add
+                            <a href="{{ route('admin.education.create') }}" class="btn btn-success btn-lg">Add
                                 New</a>
                         </p>
                     </div>
