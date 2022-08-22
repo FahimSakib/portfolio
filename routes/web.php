@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CoursesController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EducationController;
 use App\Http\Controllers\Backend\HeroController;
@@ -41,6 +42,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('work', WorkController::class)->except('show');
     Route::resource('skill', SkillController::class)->except('show');
     Route::resource('education', EducationController::class)->except('show');
+    Route::resource('course', CoursesController::class)->except('show');
 });
 // Backend
 
