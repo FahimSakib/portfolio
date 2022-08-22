@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    // $users = User::toBase()->get();
     public function index()
     {
         return view('frontend.index');

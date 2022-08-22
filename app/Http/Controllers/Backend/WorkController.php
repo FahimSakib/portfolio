@@ -20,7 +20,7 @@ class WorkController extends Controller
             'subTitle' => 'Work'
         ];
 
-        $work = Work::get();
+        $work = Work::toBase()->get();
 
         return view('backend.pages.work.index', compact('pageInfo','work'));
     }
@@ -112,7 +112,7 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
-        $result = Work::find($id)->delete();
+        $result = Work::toBase()->find($id)->delete();
 
         if($result){
             return redirect()->route('admin.work.index')->with('success', 'Data has been deleted successfully');

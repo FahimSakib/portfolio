@@ -23,7 +23,7 @@ class HeroController extends Controller
             'subTitle' => 'Hero Section'
         ];
 
-        $hero = HeroSection::get();
+        $hero = HeroSection::toBase()->get();
 
         return view('backend.pages.hero-section.index', compact('pageInfo','hero'));
     }
@@ -89,7 +89,7 @@ class HeroController extends Controller
             'subTitle' => 'Hero Section Edit'
         ];
 
-        $hero = HeroSection::find($id);
+        $hero = HeroSection::toBase()->find($id);
         return view('backend.pages.hero-section.edit',compact('pageInfo','hero'));
     }
 
@@ -142,7 +142,7 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        $hero = HeroSection::find($id);
+        $hero = HeroSection::toBase()->find($id);
         
         if($hero){
             $this->delete_file($hero->cover,'hero_section');
