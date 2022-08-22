@@ -21,7 +21,7 @@
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control @error('title') is-invalid @enderror" id="title"
                                     name="title" type="text" value="{{ old('title') }}"
-                                    placeholder="1" />
+                                    placeholder="Web development" />
                                 <label for="title">Title</label>
                             </div>
                             @error('title')

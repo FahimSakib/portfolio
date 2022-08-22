@@ -19,7 +19,7 @@
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control @error('title') is-invalid @enderror" id="title"
                                     name="title" type="text" value="{{ $skill->title }}"
-                                    placeholder="Web development" />
+                                    placeholder="1" />
                                 <label for="title">Title</label>
                             </div>
                             @error('title')

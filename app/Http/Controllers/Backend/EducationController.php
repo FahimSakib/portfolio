@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
 use Illuminate\Http\Request;
 
 class EducationController extends Controller
@@ -24,7 +25,12 @@ class EducationController extends Controller
      */
     public function create()
     {
-        //
+        $pageInfo = [
+            'title'    => 'Education | Create',
+            'subTitle' => 'Education Create'
+        ];
+
+        return view('backend.pages.education.create', compact('pageInfo'));
     }
 
     /**
@@ -35,7 +41,20 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'exam'         => 'required|string',
+            'school'       => 'required|string',
+            'passing_year' => 'required|integer',
+            'gpa'          => 'nullable|string'
+        ]);
+
+        $result = Education::create($request->all());
+
+        if($result){
+            return redirect()->route('admin.education.index')->with('success', 'Data has been saved successfully');
+        }else{
+            return redirect()->route('admin.education.index')->with('error', 'Data can\'t be saved');
+        }
     }
 
     /**
