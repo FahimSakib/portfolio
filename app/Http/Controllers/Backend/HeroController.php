@@ -142,7 +142,7 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        $hero = HeroSection::toBase()->find($id);
+        $hero = HeroSection::find($id);
         
         if($hero){
             $this->delete_file($hero->cover,'hero_section');

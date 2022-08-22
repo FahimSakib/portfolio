@@ -70,10 +70,6 @@ toast($message,'error');
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <img src="{{ asset('storage/hero_section/'.$item->cover) }}" alt="{{ $item->cover }}"
-                            style="width: 100%">
-                    </div>
                 </div>
 
                 @empty
