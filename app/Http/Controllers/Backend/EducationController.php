@@ -72,7 +72,14 @@ class EducationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageInfo = [
+            'title'    => 'Education | Edit',
+            'subTitle' => 'Education Edit'
+        ];
+
+        $education = Education::find($id);
+
+        return view('backend.pages.education.edit',compact('pageInfo','education'));
     }
 
     /**
@@ -84,7 +91,20 @@ class EducationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'exam'         => 'required|string',
+            'school'       => 'required|string',
+            'passing_year' => 'required|integer',
+            'gpa'          => 'nullable|string'
+        ]);
+
+        $result = Education::find($id)->update($request->all());
+
+        if($result){
+            return redirect()->route('admin.education.index')->with('success', 'Data has been updated successfully');
+        }else{
+            return redirect()->route('admin.education.index')->with('error', 'Data can\'t be updated');
+        }
     }
 
     /**
