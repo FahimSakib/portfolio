@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EducationController;
 use App\Http\Controllers\Backend\HeroController;
+use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\SkillController;
 use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('skill', SkillController::class)->except('show');
     Route::resource('education', EducationController::class)->except('show');
     Route::resource('course', CourseController::class)->except('show');
+    Route::resource('project', ProjectController::class)->except('show');
 });
 // Backend
 
