@@ -64,8 +64,8 @@
                 <div class="collapse" id="collapseProject" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Index</a>
-                        <a class="nav-link" href="">Create</a>
+                        <a class="nav-link" href="{{ route('admin.project.index') }}">Index</a>
+                        <a class="nav-link" href="{{ route('admin.project.create') }}">Create</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="">
