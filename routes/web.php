@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ContactController as BackendContactController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EducationController;
@@ -47,6 +48,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('education', EducationController::class)->except('show');
     Route::resource('course', CourseController::class)->except('show');
     Route::resource('project', ProjectController::class)->except('show');
+    Route::get('contact',[BackendContactController::class, 'index'])->name('contact.index');
+    Route::delete('contact/delete/{id}',[BackendContactController::class, 'delete'])->name('contact.delete');
 });
 // Backend
 

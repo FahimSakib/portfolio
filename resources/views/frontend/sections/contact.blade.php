@@ -1,3 +1,11 @@
+@php
+if($message = Session::get('success')){
+toast($message,'success');
+}
+if($message = Session::get('error')){
+toast($message,'error');
+}
+@endphp
 <div data-anchor="page7" class="pp-scrollable section section-7">
     <div class="scroll-wrap">
         <div class="section-bg" style="background-image:url(images/bg/contact.jpg);"></div>
