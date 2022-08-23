@@ -31,33 +31,20 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="col-resume">
-                                            <h4 class="title-uppercase">Experience</h4>
+                                            <h4 class="title-uppercase">Courses</h4>
                                             <div class="resume-content">
                                                 <div class="resume-inner">
+                                                    @foreach ($courses as $item)
                                                     <div class="resume-row">
-                                                        <h6 class="resume-type">Webdesigner & Front-end</h6>
-                                                        <p class="resume-study">University of studies,
-                                                            Poland, Cracow</p>
-                                                        <p class="resume-date text-primary">Jan 2004 - Dec
-                                                            2006</p>
-                                                        <p class="resume-text">Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit. Minus nobis animi
-                                                            assumenda sint recusandae! Dolor placeat debitis
-                                                            animi illum quo repellendus pariatur, enim
-                                                            doloribus, deleniti!</p>
+                                                        <h6 class="resume-type">{{ $item->title }}</h6>
+                                                        <p class="resume-study">{{ $item->institute }}</p>
+                                                        <p class="resume-date text-primary">Duration:
+                                                            {{ $item->duration }}</p>
+                                                        @if ($item->org != null)
+                                                        <p class="resume-text">{{ $item->org }}</p>
+                                                        @endif
                                                     </div>
-                                                    <div class="resume-row">
-                                                        <h6 class="resume-type">WordPress Developer</h6>
-                                                        <p class="resume-study">University of studies,
-                                                            Poland, Cracow</p>
-                                                        <p class="resume-date text-primary">Jan 2004 - Dec
-                                                            2006</p>
-                                                        <p class="resume-text">Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit. Minus nobis animi
-                                                            assumenda sint recusandae! Dolor placeat debitis
-                                                            animi illum quo repellendus pariatur, enim
-                                                            doloribus, deleniti!!</p>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
