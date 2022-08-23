@@ -11,7 +11,7 @@
                                     <div class="col-xl-7">
                                         <div class="experience-box pb-5">
                                             <div class="experience-content">
-                                                <div class="experience-number text-texture">4</div><br
+                                                <div class="experience-number text-texture">{{ !empty($work->experience) ? $work->experience : '2' }}</div><br
                                                     class="d-block d-sm-none">
                                                 <div class="experience-info">Years<br>Experience<br>Working
                                                 </div>
@@ -20,27 +20,19 @@
                                     </div>
                                     <div class="col-xl-5">
                                         <h2 class="title-uppercase"> <span class="text-primary">the
-                                                best</span> Websites around</h2>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Accusantium dicta sit pariatur odio unde deleniti eveniet magni cum,
-                                        ad iure, vel nisi minima vero voluptates.
+                                                best</span> {{ !empty($work->heading) ? $work->heading : 'Website Around' }}</h2>
+                                                {{ !empty($work->heading) ? $work->heading : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }}
                                         <div class="progress-bars">
+                                            @foreach ($skills as $item)
                                             <div class="clearfix">
-                                                <div class="number float-left">Development</div>
-                                                <div class="number float-right">80%</div>
+                                                <div class="number float-left">{{ $item->title }}</div>
+                                                <div class="number float-right">{{ $item->percentage }}%</div>
                                             </div>
                                             <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 80%"
+                                                <div class="progress-bar" role="progressbar" style="width: {{ $item->percentage }}%"
                                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <div class="clearfix">
-                                                <div class="number float-left">WordPress</div>
-                                                <div class="number float-right">70%</div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 70%"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                            @endforeach                                      
                                         </div>
                                     </div>
                                 </div>

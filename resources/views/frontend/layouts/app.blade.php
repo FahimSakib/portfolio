@@ -17,9 +17,9 @@
     <link rel="apple-touch-icon" sizes="114x114" href="asset/frontend/apple-touch-icon-114x114.png">
     <title>@hasSection ('title')
         @yield('title')
-    @else
+        @else
         Portfolio
-    @endif</title>
+        @endif</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;display=swap"
         rel="stylesheet">
@@ -73,8 +73,10 @@
             <a class="brand" href="#">
                 <img class="brand-img" alt="" src="asset/frontend/images/brand.png">
                 <div class="brand-info">
-                    <div class="brand-name">{{ !empty($heroSection->brandName) ? $heroSection->brandName : 'Fahim' }}</div>
-                    <div class="brand-text">{{ !empty($heroSection->brandText) ? $heroSection->brandText : 'Sakib' }}</div>
+                    <div class="brand-name">{{ !empty($heroSection->brandName) ? $heroSection->brandName : 'Fahim' }}
+                    </div>
+                    <div class="brand-text">{{ !empty($heroSection->brandText) ? $heroSection->brandText : 'Sakib' }}
+                    </div>
                 </div>
             </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"

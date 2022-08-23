@@ -31,7 +31,7 @@
                                 <input class="form-control @error('heading') is-invalid @enderror" id="heading"
                                     name="heading" type="text" value="{{ $work->heading }}"
                                     placeholder="Website around" />
-                                <label for="heading">Brand Text</label>
+                                <label for="heading">Heading</label>
                             </div>
                             @error('heading')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
