@@ -59,11 +59,11 @@
             </ul>
             <div class="menu-footer right-boxed">
                 <div class="social-list">
-                    <a href="#" class="icon ion-social-twitter"></a>
-                    <a href="#" class="icon ion-social-facebook"></a>
-                    <a href="#" class="icon ion-social-googleplus"></a>
-                    <a href="#" class="icon ion-social-linkedin"></a>
-                    <a href="#" class="icon ion-social-dribbble-outline"></a>
+                    <a href="https://github.com/FahimSakib" target="_blank" class="icon ion-social-github"></a>
+                    <a href="https://www.facebook.com/fahimsakib98" target="_blank"
+                        class="icon ion-social-facebook"></a>
+                    <a href="https://www.linkedin.com/in/fahim-sakib-94a430245/" target="_blank"
+                        class="icon ion-social-linkedin"></a>
                 </div>
             </div>
         </div>
@@ -100,11 +100,9 @@
         </header>
         <div class="copy-bottom white boxed">© Fahim Sakib 2022.</div>
         <div class="social-list social-list-bottom boxed">
-            <a href="#" class="icon ion-social-twitter"></a>
-            <a href="#" class="icon ion-social-facebook"></a>
-            <a href="#" class="icon ion-social-googleplus"></a>
-            <a href="#" class="icon ion-social-linkedin"></a>
-            <a href="#" class="icon ion-social-dribbble-outline"></a>
+            <a href="https://github.com/FahimSakib" target="_blank" class="icon ion-social-github"></a>
+            <a href="https://www.facebook.com/fahimsakib98" target="_blank" class="icon ion-social-facebook"></a>
+            <a href="https://www.linkedin.com/in/fahim-sakib-94a430245/" target="_blank" class="icon ion-social-linkedin"></a>
         </div>
         <div class="pagepiling">
             @yield('content')
