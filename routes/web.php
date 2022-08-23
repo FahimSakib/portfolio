@@ -50,5 +50,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('project', ProjectController::class)->except('show');
     Route::get('contact',[BackendContactController::class, 'index'])->name('contact.index');
     Route::delete('contact/delete/{id}',[BackendContactController::class, 'delete'])->name('contact.delete');
+    Route::post('logout',[DashboardController::class,'adminLogout'])->name('logout');
 });
 // Backend

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -15,5 +17,12 @@ class DashboardController extends Controller
         ];
 
         return view('backend.pages.dashboard.dashboard',compact('pageInfo'));
+    }
+
+    public function adminLogout()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect()->route('admin.dashboard');
     }
 }
