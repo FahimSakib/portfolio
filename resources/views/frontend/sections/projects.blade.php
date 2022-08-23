@@ -18,50 +18,18 @@
                                     <div class="col-md-12">
                                         <h2 class="title-uppercase text-white">LATEST PROJECTS</h2>
                                         <div class="row-project-box row">
+                                            @foreach ($projects as $item)
                                             <div class="col-project-box col-sm-6 col-md-4 col-lg-4">
-                                                <a href="project-detail.html" class="project-box">
+                                                <a href="{{ $item->url }}" target="_blank" class="project-box">
                                                     <div class="project-box-inner">
-                                                        <h5>Boranito<br>Skat</h5>
-                                                        <div class="project-category">House Design</div>
+                                                        <h5>{{ $item->name }}</h5>
+                                                        <div class="project-category">{{ $item->type }}</div>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-project-box col-sm-6 col-md-4 col-lg-4">
-                                                <a href="project-detail.html" class="project-box">
-                                                    <div class="project-box-inner">
-                                                        <h5>White<br>Bottle</h5>
-                                                        <div class="project-category">2018 / BRANDING</div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-project-box col-sm-6 col-md-4 col-lg-4">
-                                                <a href="project-detail.html" class="project-box">
-                                                    <div class="project-box-inner">
-                                                        <h5>ICO Bottle<br> Opener</h5>
-                                                        <div class="project-category">2017 / INTERACTION
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-project-box col-sm-6 col-md-4 col-lg-4">
-                                                <a href="project-detail.html" class="project-box">
-                                                    <div class="project-box-inner">
-                                                        <h5>Rennovate<br> Toilet</h5>
-                                                        <div class="project-category">2018 / BRANDING</div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-project-box col-sm-6 col-md-4 col-lg-4">
-                                                <a href="project-detail.html" class="project-box">
-                                                    <div class="project-box-inner">
-                                                        <h5>Bauhaus<br> studio</h5>
-                                                        <div class="project-category">2017 / INTERACTION
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <a href="#" class="h5 link-arrow text-white">view all projects <i
+                                        <a href="https://github.com/FahimSakib?tab=repositories" target="_blank" class="h5 link-arrow text-white">view all projects <i
                                                 class="icon icon-chevron-right"></i></a>
                                     </div>
                                 </div>
