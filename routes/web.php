@@ -40,7 +40,7 @@ Route::post('send/msg',[ContactController::class, 'store'])->name('send.msg');
 // frontend
 
 // Backend
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('hero', HeroController::class)->except('show');
     Route::resource('work', WorkController::class)->except('show');
@@ -52,6 +52,3 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::delete('contact/delete/{id}',[BackendContactController::class, 'delete'])->name('contact.delete');
 });
 // Backend
-
-
-// , 'middleware' => 'auth'
