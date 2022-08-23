@@ -68,7 +68,7 @@
                         <a class="nav-link" href="{{ route('admin.project.create') }}">Create</a>
                     </nav>
                 </div>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('admin.contact.index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                     Contacts
                 </a>
