@@ -18,15 +18,14 @@ toast($message,'error');
                             <div class="intro overflow-hidden">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h2 class="title-uppercase"><span class="text-primary">NEW
-                                                YORK</span>,USA</h2>
-                                        <h5 class="text-muted">166 Main Street, Beverly Hills, CA 90210</h5>
+                                        <h2 class="title-uppercase"><span class="text-primary">Chattogram</span>, Bangladesh</h2>
+                                        <h5 class="text-muted">East Katgor, North Patenga, 4204</h5>
                                         <section class="contact-address">
                                             <h3><a class="mail"
-                                                    href="">
-                                                    <span class="__cf_email__">[email&#160;protected]</span></a>
+                                                    href="mailto:{{ !empty($heroSection->email) ? $heroSection->email : 'example@mail.com' }}">
+                                                    <span class="__cf_email__">{{ !empty($heroSection->email) ? $heroSection->email : 'example@mail.com' }}</span></a>
                                             </h3>
-                                            <h3><span class="phone">+96 56-85-1379</span></h3>
+                                            <h3><span class="phone">+{{ !empty($heroSection->mobile) ? $heroSection->mobile : '0123456789' }}</span></h3>
                                         </section>
                                     </div>
                                     <div class="col-md-6">
