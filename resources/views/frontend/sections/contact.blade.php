@@ -15,16 +15,16 @@
                                         <h5 class="text-muted">166 Main Street, Beverly Hills, CA 90210</h5>
                                         <section class="contact-address">
                                             <h3><a class="mail"
-                                                    href="http://paul-themes.com/cdn-cgi/l/email-protection#41222e2f3520223501332e232433356f222e2c">
-                                                    <span class="__cf_email__"
-                                                        data-cfemail="10737f7e6471736450627f727562643e737f7d">[email&#160;protected]</span></a>
+                                                    href="">
+                                                    <span class="__cf_email__">[email&#160;protected]</span></a>
                                             </h3>
                                             <h3><span class="phone">+96 56-85-1379</span></h3>
                                         </section>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="contact-info">
-                                            <form class="js-form" novalidate="novalidate">
+                                            <form method="POST" action="{{ route('send.msg') }}">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="form-group col-sm-6">
                                                         <input type="text" name="name" required="" placeholder="Name*"
@@ -39,7 +39,7 @@
                                                             placeholder="Subject (Optinal)">
                                                     </div>
                                                     <div class="form-group col-sm-12">
-                                                        <textarea name="message" required=""
+                                                        <textarea name="msg" required=""
                                                             placeholder="Message*"></textarea>
                                                     </div>
                                                     <div class="form-group form-group-message col-sm-12">

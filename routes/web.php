@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\HeroController;
 use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\SkillController;
 use App\Http\Controllers\Backend\WorkController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware([
 
 // frontend
 Route::get('/',[IndexController::class, 'index'])->name('frontend.index');
+Route::post('send/msg',[ContactController::class, 'store'])->name('send.msg');
 // frontend
 
 // Backend
