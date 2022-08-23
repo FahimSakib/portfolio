@@ -14,30 +14,17 @@
                                             <h4 class="title-uppercase">Education</h4>
                                             <div class="resume-content">
                                                 <div class="resume-inner">
+                                                    @foreach ($educations as $item)
                                                     <div class="resume-row">
-                                                        <h6 class="resume-type">Specialization course</h6>
-                                                        <p class="resume-study">University of studies,
-                                                            Poland, Cracow</p>
-                                                        <p class="resume-date text-primary">Jan 2004 - Dec
-                                                            2006</p>
-                                                        <p class="resume-text">Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit. Minus nobis animi
-                                                            assumenda sint recusandae! Dolor placeat debitis
-                                                            animi illum quo repellendus pariatur, enim
-                                                            doloribus, </p>
+                                                        <h6 class="resume-type">{{ $item->exam }}</h6>
+                                                        <p class="resume-study">{{ $item->school }}</p>
+                                                        <p class="resume-date text-primary">Year of Passing:
+                                                            {{ $item->passing_year }}</p>
+                                                        @if ($item->gpa != null)
+                                                        <p class="resume-text">{{ $item->gpa }}</p>
+                                                        @endif
                                                     </div>
-                                                    <div class="resume-row">
-                                                        <h6 class="resume-type">Specialization course</h6>
-                                                        <p class="resume-study">University of studies,
-                                                            Poland, Cracow</p>
-                                                        <p class="resume-date text-primary">Jan 2004 - Dec
-                                                            2006</p>
-                                                        <p class="resume-text">Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit. Minus nobis animi
-                                                            assumenda sint recusandae! Dolor placeat debitis
-                                                            animi illum quo repellendus pariatur, enim
-                                                            doloribus</p>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
