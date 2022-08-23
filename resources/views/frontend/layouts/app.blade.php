@@ -51,10 +51,10 @@
                     <a href="#page3">Resume</a>
                 </li>
                 <li data-menuanchor="page4">
-                    <a href="#page4">Clients</a>
+                    <a href="#page4">Projects</a>
                 </li>
-                <li data-menuanchor="page7">
-                    <a href="#page7">Contact</a>
+                <li data-menuanchor="page5">
+                    <a href="#page5">Contact</a>
                 </li>
             </ul>
             <div class="menu-footer right-boxed">
@@ -73,8 +73,8 @@
             <a class="brand" href="#">
                 <img class="brand-img" alt="" src="asset/frontend/images/brand.png">
                 <div class="brand-info">
-                    <div class="brand-name">Robert</div>
-                    <div class="brand-text">personal</div>
+                    <div class="brand-name">{{ !empty($heroSection->brandName) ? $heroSection->brandName : 'Fahim' }}</div>
+                    <div class="brand-text">{{ !empty($heroSection->brandText) ? $heroSection->brandText : 'Sakib' }}</div>
                 </div>
             </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"
@@ -85,19 +85,18 @@
             </button>
             <div class="contacts d-none d-md-block">
                 <div class="contact-item">
-                    +96 56-85-1379
+                    +{{ !empty($heroSection->mobile) ? $heroSection->mobile : '0123456789' }}
                 </div>
                 <div class="contact-item spacer">
                     /
                 </div>
                 <div class="contact-item">
-                    <a href="http://paul-themes.com/cdn-cgi/l/email-protection#5b3834352f3a382f1b2934393e292f75383436"><span
-                            class="__cf_email__"
-                            data-cfemail="d0b3bfbea4b1b3a490a2bfb2b5a2a4feb3bfbd">[email&#160;protected]</span></a>
+                    <a href="mailto:{{ !empty($heroSection->email) ? $heroSection->email : 'example@mail.com' }}"><span
+                            class="__cf_email__">{{ !empty($heroSection->email) ? $heroSection->email : 'example@mail.com' }}</span></a>
                 </div>
             </div>
         </header>
-        <div class="copy-bottom white boxed">© Robert 2019.</div>
+        <div class="copy-bottom white boxed">© Fahim Sakib 2022.</div>
         <div class="social-list social-list-bottom boxed">
             <a href="#" class="icon ion-social-twitter"></a>
             <a href="#" class="icon ion-social-facebook"></a>
