@@ -23,7 +23,7 @@
                                         <h2 class="title-uppercase"> <span class="text-primary">the
                                                 best</span>
                                             {{ !empty($work->heading) ? $work->heading : 'Website Around' }}</h2>
-                                        {{ !empty($work->heading) ? $work->heading : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }}
+                                        {{ !empty($work->details) ? $work->details : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }}
                                         <div class="progress-bars">
                                             @foreach ($skills as $item)
                                             <div class="clearfix">
