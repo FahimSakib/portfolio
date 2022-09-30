@@ -18,7 +18,7 @@
     <title>@hasSection ('title')
         @yield('title')
         @else
-        Portfolio
+        Fahim Sakib
         @endif</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;display=swap"
